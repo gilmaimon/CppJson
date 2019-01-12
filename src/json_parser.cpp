@@ -1,5 +1,6 @@
-#include "parse/JSONParser.h"
 #include <algorithm>
+
+#include "parse/json_parser.h"
 
 namespace json {
 	json_parser::json_parser(){}

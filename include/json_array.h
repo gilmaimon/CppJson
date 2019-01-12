@@ -2,8 +2,9 @@
 
 #include <vector>
 #include <string>
-#include "JSONObject.h"
-#include "internals/ExtendedTypes.h"
+
+#include "json_object.h"
+#include "internals/extended_types.h"
 
 namespace json {
 	class json_object;

@@ -1,5 +1,5 @@
-#include "JSONArray.h"
-#include "parse/JSONParser.h"
+#include "json_array.h"
+#include "parse/json_parser.h"
 
 namespace json {
 	json_array::json_array() : internals::json_type_t(){}

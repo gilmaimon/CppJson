@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../JSONObject.h"
-#include "../JSONArray.h"
-#include "UnkownType.h"
-#include "JsonTypeMismatch.h"
+#include "../json_object.h"
+#include "../json_array.h"
+#include "unkown_type.h"
+#include "type_mismatch.h"
 
 namespace json {
 	class json_object;

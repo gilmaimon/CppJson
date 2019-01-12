@@ -4,9 +4,10 @@
 #include <string>
 #include <exception>
 #include <vector>
-#include "InvalidKey.h"
-#include "internals/ExtendedTypes.h"
-#include "JSONArray.h"
+
+#include "invalid_key.h"
+#include "internals/extended_types.h"
+#include "json_array.h"
 
 namespace json {
 	class json_array;

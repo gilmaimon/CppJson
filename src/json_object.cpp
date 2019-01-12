@@ -1,5 +1,5 @@
-#include "JSONObject.h"
-#include "parse/JSONParser.h"
+#include "json_object.h"
+#include "parse/json_parser.h"
 
 namespace json {
 	json_object::json_object() {}
