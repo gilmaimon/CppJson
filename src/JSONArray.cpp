@@ -1,5 +1,5 @@
 #include "JSONArray.h"
-#include <iostream>>
+#include <iostream>
 
 JSONArray::JSONArray() : JSONType()
 {

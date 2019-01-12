@@ -17,12 +17,6 @@ class JSONObject : public JSONType
 {
 private:
 	std::map<Key, JSONType*> features;
-/*	std::map<Key, String> strings;
-	std::map<Key, Integer> ints;
-	std::map<Key, Double> doubles;
-	std::map<Key, Boolean> bools;
-	std::map<Key, JSONObject> objects;
-	std::map<Key, JSONArray> arrays;*/
 
 	void throwInvalidKey(Key key);
 
@@ -43,8 +37,7 @@ public:
 	JSONObject(const JSONObject& other);
 	JSONObject& operator=(const JSONObject& other);
 
-	static JSONObject fromString(std::string& json);
-	static JSONObject fromString(char* json);
+	static JSONObject fromString(std::string json);
 
 	void put(Key key, bool val);
 	void put(Key key, int val);

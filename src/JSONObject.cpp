@@ -16,13 +16,8 @@ JSONObject& JSONObject::operator=(const JSONObject& other) {
 	}
 	return *this;
 }
-JSONObject JSONObject::fromString(std::string& json) {
+JSONObject JSONObject::fromString(std::string json) {
 	return JSONParser().parseJsonObject(json);
-}
-
-JSONObject JSONObject::fromString(char* json) {
-    std::string s(json);
-	return fromString(s);
 }
 
 void JSONObject::throwInvalidKey(Key key) {
