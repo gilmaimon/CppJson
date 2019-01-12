@@ -2,9 +2,9 @@
 #include <algorithm>
 
 namespace json {
-	JSONParser::JSONParser(){}
+	json_parser::json_parser(){}
 
-	std::string JSONParser::removeSpaces(std::string& data) {
+	std::string json_parser::removeSpaces(std::string& data) {
 		std::string result;
 		bool state = true;
 		for (size_t i = 0; i < data.size(); i++) {
@@ -15,17 +15,17 @@ namespace json {
 		return result;
 	}
 
-	JSONParser::type JSONParser::getType(std::string& data) {
+	json_parser::type json_parser::getType(std::string& data) {
 		if (data[0] == '[' && data[data.size() - 1] == ']') return type::Array;
 		else if (data[0] == '{' && data[data.size() - 1] == '}') return type::Object;
 		else if (data[0] == '\"' && data[data.size() - 1] == '\"') return type::String;
 		else if (data == "false" || data == "true") return type::Boolean;
 		else if (data.find_first_not_of("0123456789") == std::string::npos) return type::Int;
 		else if (data.find_first_not_of("0123456789.") == std::string::npos && std::count(data.begin(), data.end(), '.') == 1) return type::Double;
-		else throw UnkownType(data);
+		else throw internals::unknown_type(data);
 	}
 
-	std::vector<std::string> JSONParser::smartSplit(std::string& data, char delimiter) {
+	std::vector<std::string> json_parser::smartSplit(std::string& data, char delimiter) {
 		std::vector<std::string> result;
 		std::string carry = "";
 
@@ -51,29 +51,29 @@ namespace json {
 		return result;
 	}
 
-	std::string JSONParser::trimOneChar(std::string& s) {
+	std::string json_parser::trimOneChar(std::string& s) {
 		return s.substr(1, s.size() - 2);
 	}
 
-	int JSONParser::toInt(std::string& data) {
+	int json_parser::toInt(std::string& data) {
 		return std::stoi(data);
 	}
 
-	double JSONParser::toDouble(std::string& data) {
+	double json_parser::toDouble(std::string& data) {
 		return std::stod(data);
 	}
 
-	bool JSONParser::toBool(std::string& data) {
+	bool json_parser::toBool(std::string& data) {
 		return data == "true";
 	}
 
-	JSONObject JSONParser::parseJsonObject(std::string& jsonString) {
+	json_object json_parser::parseJsonObject(std::string& jsonString) {
 		jsonString = removeSpaces(jsonString);
-		if (getType(jsonString) != type::Object) throw JsonTypeMismatch();
+		if (getType(jsonString) != type::Object) throw internals::type_mismatch();
 		jsonString = trimOneChar(jsonString); // delte the prefix and suffix '{' and '}'
 
 		std::vector<std::string> objectMembers = smartSplit(jsonString, ',');
-		JSONObject result;
+		json_object result;
 		for (std::string& member : objectMembers) {
 			std::string key = smartSplit(member, ':')[0];
 			std::string value = member.substr(key.size() + 1);
@@ -102,13 +102,13 @@ namespace json {
 		}
 		return result;
 	}
-	JSONArray JSONParser::parseJsonArray(std::string& jsonString) {
+	json_array json_parser::parseJsonArray(std::string& jsonString) {
 		jsonString = removeSpaces(jsonString);
 
-		if (getType(jsonString) != type::Array) throw JsonTypeMismatch();
+		if (getType(jsonString) != type::Array) throw internals::type_mismatch();
 		jsonString = trimOneChar(jsonString); // delte the prefix and suffix '[' and ']'
 		std::vector<std::string> items = smartSplit(jsonString, ',');
-		JSONArray result;
+		json_array result;
 		for (std::string& item : items) {
 			switch (getType(item)) {
 			case type::Int:
@@ -133,5 +133,5 @@ namespace json {
 		}
 		return result;
 	}
-	JSONParser::~JSONParser(){}
+	json_parser::~json_parser(){}
 };

@@ -2,15 +2,15 @@
 #include <iostream>
 
 namespace json {
-	JSONArray::JSONArray() : internals::json_type_t(){}
+	json_array::json_array() : internals::json_type_t(){}
 
-	JSONArray::JSONArray(const JSONArray& jsonArray) : JSONArray() {
+	json_array::json_array(const json_array& jsonArray) : json_array() {
 		for (size_t i = 0; i < jsonArray.items.size(); i++) {
 			items.push_back(jsonArray.items[i]->clone());
 		}
 	}
 
-	JSONArray& JSONArray::operator=(const JSONArray& other) {
+	json_array& json_array::operator=(const json_array& other) {
 		// check for self-assignment
 		if(&other == this)
 			return *this;
@@ -23,55 +23,55 @@ namespace json {
 		return *this;
 	}
 
-	internals::json_type_t* JSONArray::clone() {
-		return new JSONArray(*this);
+	internals::json_type_t* json_array::clone() {
+		return new json_array(*this);
 	}
 
-	JSONArray JSONArray::fromString(std::string& json) {
-		return JSONParser().parseJsonArray(json);
+	json_array json_array::fromString(std::string& json) {
+		return json_parser().parseJsonArray(json);
 	}
 
-	void JSONArray::add(JSONObject val) { items.push_back(new JSONObject(val)); }
-	void JSONArray::add(JSONArray val) { items.push_back(new JSONArray(val)); }
-	void JSONArray::add(int val) { items.push_back(new internals::json_integer_t(val)); }
-	void JSONArray::add(bool val) { items.push_back(new internals::json_bool_t(val)); }
-	void JSONArray::add(std::string val) { items.push_back(new internals::json_string_t(val)); }
-	void JSONArray::add(char* val) { add(std::string(val)); }
-	void JSONArray::add(double val) { items.push_back(new internals::json_double_t(val)); }
+	void json_array::add(json_object val) { items.push_back(new json_object(val)); }
+	void json_array::add(json_array val) { items.push_back(new json_array(val)); }
+	void json_array::add(int val) { items.push_back(new internals::json_integer_t(val)); }
+	void json_array::add(bool val) { items.push_back(new internals::json_bool_t(val)); }
+	void json_array::add(std::string val) { items.push_back(new internals::json_string_t(val)); }
+	void json_array::add(char* val) { add(std::string(val)); }
+	void json_array::add(double val) { items.push_back(new internals::json_double_t(val)); }
 
-	int JSONArray::getInt(int index) {
+	int json_array::getInt(int index) {
 		internals::json_integer_t* i = (internals::json_integer_t*) items[index];
 		return *i;
 	}
 
-	bool JSONArray::getBool(int index) {
+	bool json_array::getBool(int index) {
 		internals::json_bool_t* b = (internals::json_bool_t*) items[index];
 		return *b;
 	}
 
-	double JSONArray::getDouble(int index) {
+	double json_array::getDouble(int index) {
 		internals::json_double_t* d = (internals::json_double_t*) items[index];
 		return *d;
 	}
 
-	std::string JSONArray::getString(int index) {
+	std::string json_array::getString(int index) {
 		internals::json_string_t* s = (internals::json_string_t*)items[index];
 		return *s;
 	}
-	JSONObject JSONArray::getObject(int index) {
-		JSONObject* obj = (JSONObject*)items[index];
+	json_object json_array::getObject(int index) {
+		json_object* obj = (json_object*)items[index];
 		return *obj;
 	}
-	JSONArray JSONArray::getArray(int index) {
-		JSONArray* a = (JSONArray*)items[index];
+	json_array json_array::getArray(int index) {
+		json_array* a = (json_array*)items[index];
 		return *a;
 	}
 
-	int JSONArray::size() {
+	int json_array::size() {
 		return items.size();
 	}
 
-	std::string JSONArray::to_string() {
+	std::string json_array::to_string() {
 		std::string result = "[";
 		for (size_t i = 0; i < items.size(); i++) {
 			internals::json_type_t* s = items[i];
@@ -82,7 +82,7 @@ namespace json {
 		return result;
 	}
 
-	JSONArray::~JSONArray()
+	json_array::~json_array()
 	{
 		for (size_t i = 0; i < items.size(); i++) {
 			delete items[i];

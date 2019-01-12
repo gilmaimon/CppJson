@@ -78,24 +78,6 @@ exception
 string
 -
 
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONArray.cpp
-JSONArray.h
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONArray.h
-iostream
--
-
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONObject.cpp
-JSONObject.h
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONObject.h
-iostream
--
-
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONParser.cpp
-JSONParser.h
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONParser.h
-algorithm
--
-
 C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/main.cpp
 iostream
 -

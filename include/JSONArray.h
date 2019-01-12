@@ -6,18 +6,18 @@
 #include "ExtendedTypes.h"
 
 namespace json {
-	class JSONObject;
-	class JSONArray : public internals::json_type_t {
+	class json_object;
+	class json_array : public internals::json_type_t {
 	private:
 		std::vector<internals::json_type_t*> items;
 	public:
-		JSONArray();
-		JSONArray(const JSONArray& jsonArray);
-		JSONArray& operator=(const JSONArray& other);
+		json_array();
+		json_array(const json_array& jsonArray);
+		json_array& operator=(const json_array& other);
 
-		static JSONArray fromString(std::string& json);
-		void add(JSONObject val);
-		void add(JSONArray val);
+		static json_array fromString(std::string& json);
+		void add(json_object val);
+		void add(json_array val);
 		void add(int val);
 		void add(bool val);
 		void add(std::string val);
@@ -28,15 +28,13 @@ namespace json {
 		bool getBool(int index);
 		double getDouble(int index);
 		std::string getString(int index);
-		JSONObject getObject(int index);
-		JSONArray getArray(int index);
+		json_object getObject(int index);
+		json_array getArray(int index);
 
-		//JSONObject& get(int index);
-		//JSONObject& operator[](int index);
 		int size();
 
 		virtual std::string to_string();
 		virtual internals::json_type_t* clone();
-		~JSONArray();
+		~json_array();
 	};
 };
