@@ -1,3 +1,0 @@
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/build/CMakeFiles/rebuild_cache.dir
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/build/CMakeFiles/test.dir
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/build/CMakeFiles/edit_cache.dir
