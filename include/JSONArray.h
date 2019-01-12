@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "JSONObject.h"
-#include "ExtendedTypes.h"
+#include "internals/ExtendedTypes.h"
 
 namespace json {
 	class json_object;

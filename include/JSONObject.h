@@ -5,9 +5,8 @@
 #include <exception>
 #include <vector>
 #include "InvalidKey.h"
-#include "ExtendedTypes.h"
+#include "internals/ExtendedTypes.h"
 #include "JSONArray.h"
-#include "JSONParser.h"
 
 namespace json {
 	class json_array;

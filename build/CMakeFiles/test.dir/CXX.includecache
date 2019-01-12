@@ -6,27 +6,11 @@
 
 #IncludeRegexTransform: 
 
-../include/ExtendedTypes.h
-string
--
-
 ../include/InvalidKey.h
-ExtendedTypes.h
-../include/ExtendedTypes.h
 exception
 -
 string
 -
-
-../include/JSON.h
-JSONObject.h
-../include/JSONObject.h
-JSONArray.h
-../include/JSONArray.h
-JSONParser.h
-../include/JSONParser.h
-ExtendedTypes.h
-../include/ExtendedTypes.h
 
 ../include/JSONArray.h
 vector
@@ -35,8 +19,8 @@ string
 -
 JSONObject.h
 ../include/JSONObject.h
-ExtendedTypes.h
-../include/ExtendedTypes.h
+internals/ExtendedTypes.h
+../include/internals/ExtendedTypes.h
 
 ../include/JSONObject.h
 map
@@ -49,38 +33,40 @@ vector
 -
 InvalidKey.h
 ../include/InvalidKey.h
-ExtendedTypes.h
-../include/ExtendedTypes.h
+internals/ExtendedTypes.h
+../include/internals/ExtendedTypes.h
 JSONArray.h
 ../include/JSONArray.h
-JSONParser.h
-../include/JSONParser.h
 
-../include/JSONParser.h
-JSONObject.h
+../include/internals/ExtendedTypes.h
+string
+-
+
+../include/parse/JSONParser.h
+../JSONObject.h
 ../include/JSONObject.h
-JSONArray.h
+../JSONArray.h
 ../include/JSONArray.h
 UnkownType.h
-../include/UnkownType.h
+../include/parse/UnkownType.h
 JsonTypeMismatch.h
-../include/JsonTypeMismatch.h
+../include/parse/JsonTypeMismatch.h
 
-../include/JsonTypeMismatch.h
+../include/parse/JsonTypeMismatch.h
 exception
 -
 string
 -
 
-../include/UnkownType.h
+../include/parse/UnkownType.h
 exception
 -
 string
 -
 
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/main.cpp
-iostream
--
-JSON.h
-C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSON.h
+C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONObject.cpp
+JSONObject.h
+C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/JSONObject.h
+parse/JSONParser.h
+C:/Users/mailg/Documents/Visual Studio Code/JsonUtils/src/parse/JSONParser.h
 

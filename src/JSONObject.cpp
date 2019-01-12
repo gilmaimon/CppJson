@@ -1,5 +1,5 @@
 #include "JSONObject.h"
-#include <iostream>
+#include "parse/JSONParser.h"
 
 namespace json {
 	json_object::json_object() {}
@@ -22,7 +22,7 @@ namespace json {
 	}
 
 	void json_object::throwInvalidKey(internals::key_t key) {
-		throw internals::invalid_key(key);
+		throw invalid_key(key);
 	}
 
 	internals::json_type_t* json_object::clone() {

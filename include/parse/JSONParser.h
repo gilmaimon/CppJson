@@ -1,7 +1,7 @@
 #pragma once
 
-#include "JSONObject.h"
-#include "JSONArray.h"
+#include "../JSONObject.h"
+#include "../JSONArray.h"
 #include "UnkownType.h"
 #include "JsonTypeMismatch.h"
 
