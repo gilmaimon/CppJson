@@ -9,8 +9,6 @@
 namespace json {
 	class json_object;
 	class json_array : public internals::json_type_t {
-	private:
-		std::vector<internals::json_type_t*> items;
 	public:
 		json_array();
 		json_array(const json_array& jsonArray);
@@ -37,5 +35,9 @@ namespace json {
 		virtual std::string to_string();
 		virtual internals::json_type_t* clone();
 		~json_array();
+
+	private:
+		std::vector<internals::json_type_t*> items;
+
 	};
 };

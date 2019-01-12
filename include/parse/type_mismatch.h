@@ -14,7 +14,6 @@ namespace json {
 			}
 
 			virtual ~type_mismatch() throw () {}
-		protected:
 		};
 	};
 };

@@ -10,6 +10,11 @@ namespace json {
 	class json_array;
 
 	class json_parser {
+	public:
+		json_parser();
+		json_object parseJsonObject(std::string& jsonString);
+		json_array parseJsonArray(std::string& jsonString);
+		~json_parser();
 	private:
 		enum type {
 			Int,
@@ -27,11 +32,5 @@ namespace json {
 		int toInt(std::string& data);
 		double toDouble(std::string& data);
 		bool toBool(std::string& data);
-
-	public:
-		json_parser();
-		json_object parseJsonObject(std::string& jsonString);
-		json_array parseJsonArray(std::string& jsonString);
-		~json_parser();
 	};
 };

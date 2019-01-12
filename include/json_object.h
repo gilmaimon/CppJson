@@ -14,23 +14,6 @@ namespace json {
 	class json_parser;
 
 	class json_object : public internals::json_type_t {
-	private:
-		std::map<internals::key_t, internals::json_type_t*> features;
-
-		void throwInvalidKey(internals::key_t key);
-
-		std::vector<std::string> stringifyMap(std::map<internals::key_t, internals::json_type_t*> & map) {
-			std::vector<std::string> result;
-			for (auto& pair : map) {
-				result.push_back(pair.first + " : " + pair.second->to_string());
-			}
-			return result;
-		}
-
-		template <class T> void appendVectors(std::vector<T>& a, std::vector<T> b) {
-			for (auto& item : b) a.push_back(item);
-		}
-
 	public:
 		json_object();
 		json_object(const json_object& other);
@@ -56,5 +39,23 @@ namespace json {
 		virtual internals::json_type_t* clone();
 		virtual std::string to_string();
 		~json_object();
+		
+	private:
+		std::map<internals::key_t, internals::json_type_t*> features;
+
+		void throwInvalidKey(internals::key_t key);
+
+		std::vector<std::string> stringifyMap(std::map<internals::key_t, internals::json_type_t*> & map) {
+			std::vector<std::string> result;
+			for (auto& pair : map) {
+				result.push_back(pair.first + " : " + pair.second->to_string());
+			}
+			return result;
+		}
+
+		template <class T> void appendVectors(std::vector<T>& a, std::vector<T> b) {
+			for (auto& item : b) a.push_back(item);
+		}
+
 	};
 };
