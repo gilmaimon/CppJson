@@ -1,6 +1,8 @@
 #include <iostream>
 #include "JSON.h"
 
+using namespace json;
+
 struct Human : JSONObject {
 	Human(std::string name, int age, double height) {
 		put("name", name);

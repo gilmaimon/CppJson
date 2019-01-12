@@ -11,6 +11,8 @@ string
 -
 
 ../include/InvalidKey.h
+ExtendedTypes.h
+../include/ExtendedTypes.h
 exception
 -
 string
@@ -45,8 +47,6 @@ exception
 -
 vector
 -
-Key.h
-../include/Key.h
 InvalidKey.h
 ../include/InvalidKey.h
 ExtendedTypes.h
@@ -71,12 +71,6 @@ exception
 -
 string
 -
-
-../include/Key.h
-string
--
-ExtendedTypes.h
-../include/ExtendedTypes.h
 
 ../include/UnkownType.h
 exception
