@@ -16,10 +16,9 @@ namespace json {
 	class json_object : public internals::json_type_t {
 	public:
 		json_object();
+		json_object(std::string);
 		json_object(const json_object& other);
 		json_object& operator=(const json_object& other);
-
-		static json_object fromString(std::string json);
 
 		void put(internals::key_t key, bool val);
 		void put(internals::key_t key, int val);
@@ -29,6 +28,9 @@ namespace json {
 		void put(internals::key_t key, char* val);
 		void put(internals::key_t key, json_array val);
 
+		template <class Ty>
+		Ty get(internals::key_t key);
+		
 		bool getBool(internals::key_t key);
 		int getInt(internals::key_t key);
 		double getDouble(internals::key_t key);
@@ -42,6 +44,8 @@ namespace json {
 		
 	private:
 		std::map<internals::key_t, internals::json_type_t*> features;
+
+		static json_object fromString(std::string json);
 
 		void throwInvalidKey(internals::key_t key);
 

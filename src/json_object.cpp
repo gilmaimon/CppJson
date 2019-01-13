@@ -3,7 +3,9 @@
 
 namespace json {
 	json_object::json_object() {}
-
+	json_object::json_object(std::string str) {
+		*this = fromString(str);
+	}
 	json_object::json_object(const json_object& other) {
 		for (auto& pair : other.features) {
 			features[pair.first] = pair.second->clone();
@@ -36,6 +38,31 @@ namespace json {
 	void json_object::put(internals::key_t key, json_array val) { this->features[key] = new json_array(val); }
 	void json_object::put(internals::key_t key, std::string val) { this->features[key] = new internals::json_string_t(val); }
 	void json_object::put(internals::key_t key, char* val) { put(key, std::string(val));  }
+
+	template <>
+	bool json_object::get(internals::key_t key) {
+		return std::move(getBool(key));
+	}
+	template <>
+	int json_object::get(internals::key_t key) {
+		return std::move(getInt(key));
+	}
+	template <>
+	double json_object::get(internals::key_t key) {
+		return std::move(getDouble(key));
+	}
+	template <>
+	json_object json_object::get(internals::key_t key) {
+		return std::move(getObject(key));
+	}
+	template <>
+	std::string json_object::get(internals::key_t key) {
+		return std::move(getString(key));
+	}
+	template <>
+	json_array json_object::get(internals::key_t key) {
+		return std::move(getArray(key));
+	}
 
 	bool json_object::getBool(internals::key_t key) {
 		if (features.find(key) != features.end()) return *dynamic_cast<internals::json_bool_t*>(features[key]);
