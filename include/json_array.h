@@ -11,10 +11,10 @@ namespace json {
 	class json_array : public internals::json_type_t {
 	public:
 		json_array();
+		json_array(std::string);
 		json_array(const json_array& jsonArray);
 		json_array& operator=(const json_array& other);
 
-		static json_array fromString(std::string& json);
 		void add(json_object val);
 		void add(json_array val);
 		void add(int val);
@@ -38,6 +38,6 @@ namespace json {
 
 	private:
 		std::vector<internals::json_type_t*> items;
-
+		static json_array fromString(std::string& json);
 	};
 };

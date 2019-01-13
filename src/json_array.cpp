@@ -3,6 +3,10 @@
 
 namespace json {
 	json_array::json_array() : internals::json_type_t(){}
+	
+	json_array::json_array(std::string str) {
+		*this = fromString(str);
+	}
 
 	json_array::json_array(const json_array& jsonArray) : json_array() {
 		for (size_t i = 0; i < jsonArray.items.size(); i++) {
