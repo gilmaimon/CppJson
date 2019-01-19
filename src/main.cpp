@@ -1,5 +1,5 @@
 #include <iostream>
-#include "JSON.h"
+#include "json.h"
 
 using namespace json;
 using std::string;
