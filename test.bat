@@ -1,4 +1,7 @@
 mkdir build
 cd build
 cmake .. -G "Unix Makefiles"
-make
+make tests
+tests
+cd ..
+echo "Done"
